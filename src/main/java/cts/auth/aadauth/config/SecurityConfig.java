@@ -14,6 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+
 public class SecurityConfig {
     @Autowired
     private AadAppRoleStatelessAuthenticationFilter aadFilter;
@@ -31,7 +32,6 @@ public class SecurityConfig {
                 .addFilterBefore(aadFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(entryPoint))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-                ;
         return httpSecurity.build();
     }
 

@@ -1,12 +1,10 @@
 package cts.auth.aadauth;
 
+import okhttp3.OkHttpClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.annotation.Bean;
+
 @SpringBootApplication
 public class CtsAadAuthApplication {
 
@@ -14,6 +12,10 @@ public class CtsAadAuthApplication {
         SpringApplication.run(CtsAadAuthApplication.class, args);
     }
 
+    @Bean
+    public OkHttpClient okHttpClient() {
+        return new OkHttpClient();
+    }
 
 
 }
