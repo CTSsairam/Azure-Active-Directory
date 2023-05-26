@@ -19,18 +19,20 @@ public class AuthController {
     public AuthController(LoginService loginService) {
         this.loginService = loginService;
     }
-
+    //Public Endpoint
     @GetMapping("public")
     public String publicEndpoint() {
         return "This is a public endpoint";
     }
 
+    //Secured Endpoint
     @PreAuthorize("hasRole('ROLE_Developer')")
     @GetMapping("dev")
     public String devEndpoint() {
         return "Only Developer Group users can access this endpoint";
     }
 
+    //Endpoint for obtaining a jwt token from Azure Active Directory
     @PostMapping("/login")
     public String login(@RequestBody LoginDTO loginDTO) throws IOException, ApiException {
         return loginService.getToken(loginDTO);

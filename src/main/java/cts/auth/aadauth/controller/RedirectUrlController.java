@@ -7,12 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/public")
-public class PublicController {
-
-    @GetMapping("/endpoint1")
-    public String endpoint1(){
-        return "from /api/public/endpoint1";
-    }
+public class RedirectUrlController {
+    //redirect url
     @GetMapping("/token")
     public void token(@RequestParam String token) {
         System.out.println(token);
