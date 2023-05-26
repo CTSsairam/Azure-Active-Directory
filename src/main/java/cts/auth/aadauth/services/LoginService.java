@@ -23,6 +23,9 @@ public class LoginService {
     @Value("${spring.cloud.azure.active-directory.credential.client-secret}")
     String clientSecret;
 
+    @Value("${tenant-id}")
+    String tenantId;
+
     public String getToken(LoginDTO loginDTO) throws IOException, ApiException {
         RequestBody requestBody = new FormBody.Builder()
                 .add("grant_type", "password")
@@ -34,7 +37,7 @@ public class LoginService {
                 .build();
 
         Request request = new Request.Builder()
-                .url("https://login.microsoftonline.com/bf58d208-4c98-44e6-9038-f51ff05cdc41/oauth2/v2.0/token")
+                .url("https://login.microsoftonline.com/" + tenantId + "/oauth2/v2.0/token")
                 .addHeader("Content-Type", "application/x-www-form-urlencoded")
                 .post(requestBody)
                 .build();
