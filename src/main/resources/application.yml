@@ -10,5 +10,4 @@ spring:
         session-stateless: true
         app-id-uri: 1c2a541b-e170-46d6-937c-223c553c1494
 tenant-id: bf58d208-4c98-44e6-9038-f51ff05cdc41
-
-
+scope: openid
