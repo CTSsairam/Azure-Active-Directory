@@ -73,7 +73,7 @@ public class AadResourceOwnerPasswordCredentialsImpl implements AadResourceOwner
             bindingResult.addError(new FieldError("loginDTO", "username", "Invalid Email"));
 
         }
-        if(password == null && password.length() < 8){
+        if(password == null || password.length() < 8){
             bindingResult.addError(new FieldError("loginDTO", "password", "Invalid Password"));
         }
         if (bindingResult.hasErrors()) {
